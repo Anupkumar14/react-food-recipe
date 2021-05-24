@@ -5,11 +5,11 @@ import Recipes from "./components/Recipes";
 import Axios from "axios";
 
 function App() {
-  const [search, setSerach] = useState("chiken");
+  const [search, setSerach] = useState("apple");
   const [recipes, setRecipes] = useState([]);
 
-  const APP_ID = "YOUR_APPLICATION_ID";
-  const APP_KEY = "YOUR_APPLICATION_KEY";
+  const APP_ID = "d15d2f3b";
+  const APP_KEY = "3ac030e04b7641e12013c6c251f8a26d";
 
   useEffect(() => {
     getRecipes();
@@ -17,7 +17,7 @@ function App() {
 
   const getRecipes = async () => {
     const res = await Axios.get(
-      `https://api.edamam.com/search?q=${search}&app_id=${APP_ID}&app_key=${APP_KEY}`
+      `https://api.edamam.com/search?q=${search}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=6&calories=591-722&health=alcohol-free`
     );
     setRecipes(res.data.hits);
   };
